@@ -8,21 +8,20 @@ LETTER_SCORES = {letter: score for score, letters in scrabble_scores
 # start coding
 
 def load_words():
-    with open("word_list.txt", "r", encoding="utf8") as file:
+    with open (DICTIONARY,"r") as file:
         word_list = [line.strip() for line in file]
-    print(LETTER_SCORES)
+    """Load the words dictionary (DICTIONARY constant) into a list and return it"""
     return word_list
 
 
 def calc_word_value(word):
     score = 0
     for letter in list(word):
-        if letter in LETTER_SCORES:
-            print("first", letter)
+        try:
             score += LETTER_SCORES[letter.upper()]
-        else:
-            print("second", letter)
+        except:
             score += 0
+    """Given a word calculate its value using the LETTER_SCORES dict"""
     return score
 
 def max_word_value(words):
@@ -31,8 +30,3 @@ def max_word_value(words):
         scores.append(calc_word_value(word))
     """Given a list of words calculate the word with the maximum value and return it"""
     return words[scores.index(max(scores))]
-
-print(max_word_value(['bob', 'julian', 'pybites', 'quit', 'barbeque']))
-
-
-print(calc_word_value("bob"))
