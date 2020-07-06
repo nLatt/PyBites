@@ -1,12 +1,10 @@
 import csv
-import os
 from collections import defaultdict, namedtuple
 
 MIN_MOVIES = 4
 MIN_YEAR = 1960
 
 Movie = namedtuple('Movie', 'title year score')
-
 
 def get_movies_by_director():
     director_dict = {}
