@@ -15,12 +15,13 @@ def load_words():
 
 
 def calc_word_value(word):
-    """Given a word calculate its value using the LETTER_SCORES dict"""
-    pass
-
+    score = 0
+    for letter in list(word):
+        score += LETTER_SCORES[letter.upper()]
+    return score
 
 def max_word_value(words):
     """Given a list of words calculate the word with the maximum value and return it"""
     pass
 
-load_words()
+calc_word_value("bob")
