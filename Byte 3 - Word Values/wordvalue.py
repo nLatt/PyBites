@@ -8,8 +8,9 @@ LETTER_SCORES = {letter: score for score, letters in scrabble_scores
 # start coding
 
 def load_words():
-    with open("word_list", "r", encoding="utf8") as file:
+    with open("word_list.txt", "r", encoding="utf8") as file:
         word_list = [line.strip() for line in file]
+    print(LETTER_SCORES)
     return word_list
 
 
@@ -21,3 +22,5 @@ def calc_word_value(word):
 def max_word_value(words):
     """Given a list of words calculate the word with the maximum value and return it"""
     pass
+
+load_words()
