@@ -1,4 +1,5 @@
 from collections import defaultdict
+
 from directors import (get_movies_by_director, get_average_scores,
                        calc_mean_score, Movie)
 

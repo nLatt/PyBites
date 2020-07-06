@@ -1,6 +1,6 @@
 import csv
-from collections import defaultdict, namedtuple
 import os
+from collections import defaultdict, namedtuple
 
 MIN_MOVIES = 4
 MIN_YEAR = 1960
@@ -15,9 +15,11 @@ def get_movies_by_director():
         for row in reader:
             if len(row["title_year"]) == 4 and int(row["title_year"]) >= MIN_YEAR:
                 if row["director_name"] not in director_dict:
-                    director_dict.update({row["director_name"]: [Movie(title=row["movie_title"], year=int(row["title_year"]), score=float(row["imdb_score"]))]})
+                    director_dict.update({row["director_name"]: [
+                        Movie(title=row["movie_title"], year=int(row["title_year"]), score=float(row["imdb_score"]))]})
                 else:
-                    director_dict[row["director_name"]].append(Movie(title=row["movie_title"], year=int(row["title_year"]), score=float(row["imdb_score"])))
+                    director_dict[row["director_name"]].append(
+                        Movie(title=row["movie_title"], year=int(row["title_year"]), score=float(row["imdb_score"])))
     return director_dict
 
 
@@ -26,7 +28,7 @@ def calc_mean_score(movies):
     for i in movies:
         score_holder += i.score
 
-    score = round(score_holder/len(movies), 1)
+    score = round(score_holder / len(movies), 1)
     return score
 
 
