@@ -17,11 +17,22 @@ def load_words():
 def calc_word_value(word):
     score = 0
     for letter in list(word):
-        score += LETTER_SCORES[letter.upper()]
+        if letter in LETTER_SCORES:
+            print("first", letter)
+            score += LETTER_SCORES[letter.upper()]
+        else:
+            print("second", letter)
+            score += 0
     return score
 
 def max_word_value(words):
+    scores = []
+    for word in words:
+        scores.append(calc_word_value(word))
     """Given a list of words calculate the word with the maximum value and return it"""
-    pass
+    return words[scores.index(max(scores))]
 
-calc_word_value("bob")
+print(max_word_value(['bob', 'julian', 'pybites', 'quit', 'barbeque']))
+
+
+print(calc_word_value("bob"))
