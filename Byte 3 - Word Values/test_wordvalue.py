@@ -25,5 +25,4 @@ def test_max_word_value():
 
 
 def test_non_scrabble_characters():
-    # thanks Joakim
     assert max_word_value(["a", "åäö"]) == "a"
